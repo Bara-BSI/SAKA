@@ -1,0 +1,29 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 4, in script
+  File "game/script.rpy", line 4, in script
+  File "game/script.rpy", line 59, in <module>
+ModuleNotFoundError: No module named 'mysql'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/main.py", line 541, in main
+    renpy.game.context().run(node)
+  File "game/script.rpy", line 4, in script
+  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
+  File "game/script.rpy", line 4, in script
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/ast.py", line 821, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 59, in <module>
+ModuleNotFoundError: No module named 'mysql'
+
+Linux-6.11.8-1-default-x86_64-with-glibc2.40 x86_64
+Ren'Py 8.3.2.24090902
+SAKA 1.0
+Fri Nov 22 20:29:37 2024

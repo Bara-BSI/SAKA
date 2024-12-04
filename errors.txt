@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/screens.rpy", line 1764: 'background' is not a keyword argument or valid child of the vbox statement.
+    background "gui/textbox.png"
+              ^
+
+Ren'Py Version: Ren'Py 8.3.2.24090902
+Wed Dec  4 20:05:57 2024

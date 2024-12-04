@@ -1,0 +1,40 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+After initialization, but before game start.
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "game/screens.rpy", line 1771, in <module>
+    background thoughtbubble
+NameError: name 'thoughtbubble' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/main.py", line 652, in main
+    run(restart)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/main.py", line 75, in run
+    renpy.translation.init_translation()
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/translation/__init__.py", line 702, in init_translation
+    renpy.store._init_language() # type: ignore
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/translation/__init__.py", line 796, in change_language
+    new_change_language(tl, language)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/translation/__init__.py", line 748, in new_change_language
+    i.apply()
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/ast.py", line 2800, in apply
+    value = renpy.python.py_eval(expr)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/screens.rpy", line 1771, in <module>
+    background thoughtbubble
+NameError: name 'thoughtbubble' is not defined
+
+Linux-6.11.8-1-default-x86_64-with-glibc2.40 x86_64
+Ren'Py 8.3.2.24090902
+SAKA 0.1.0
+Wed Dec  4 19:59:39 2024
