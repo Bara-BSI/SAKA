@@ -264,6 +264,10 @@ label act4:
     queue sound "game-music-loop-7-145285.mp3" fadein 2.0
     scene kelas versi anime with fade
     "Singkat cerita, bel pulang sekolah berbunyi, menandakan akhir dari hari yang panjang. "
+    if gender=="L":
+        show player_male_ransel_neutral_fix at center, Normal with dissolve
+    else:
+        show player_female_ransel_neutral_fix at center, Normal with dissolve
     "Aku segera mengemas barang-barangku, mengamati sejenak kelas yang mulai sepi, lalu berjalan keluar dan pulang."
     scene kamar with fade
     if gender=="L":

@@ -23,7 +23,7 @@ define gui.show_name = False
 
 ## Versi Permainan.
 
-define config.version = "0.2.0"
+define config.version = "0.2.1"
 
 
 ## Teks yang ditempatkan pada layar tentang game. Tempatkan teks di antara tanda
