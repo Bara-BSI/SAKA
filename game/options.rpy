@@ -23,13 +23,13 @@ define gui.show_name = False
 
 ## Versi Permainan.
 
-define config.version = "0.1.0"
+define config.version = "0.2.0"
 
 
 ## Teks yang ditempatkan pada layar tentang game. Tempatkan teks di antara tanda
 ## kutip tiga, dan biarkan baris kosong di antara paragraf.
 
-define gui.about = _p("""Game ini dibuat oleh Barescrim (Bara-Restu-Chris Team)
+define gui.about = _p("""Game ini dibuat oleh Barescrim (Bara-Restu-Chris Team) untuk tugas kuliah semester 3
 """)
 
 

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1764: 'background' is not a keyword argument or valid child of the vbox statement.
-    background "gui/textbox.png"
-              ^
+File "game/init.rpy", line 227: 'text_size' is not a keyword argument or valid child of the text statement.
+    text_size 60
+             ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Wed Dec  4 20:05:57 2024
+Fri Dec  6 14:18:34 2024

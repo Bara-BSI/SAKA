@@ -1,8 +1,11 @@
-﻿label start:
+﻿# Jalan Cerita
+label start:
     stop sound fadeout 2.0
     scene starting with dissolve
     call screen gender
     scene kamar with fade
+    play sound "vibration_sound_effect.mp3"
+    queue sound "game-music-loop-7-145285.mp3" loop fadein 2.0
     #show awan at abscenter with dissolve
     show hp_alarm at abscenter, shake_with_pause with dissolve
     "\"Bib… bib… bib… ♪♪\"\[Bunyi alarm mengganggu\]" with dissolve
@@ -23,23 +26,43 @@
     else:
         show player_female_home_neutral_fix with dissolve
     "Yup, namaku [player_name]."
+    if gender=="L":
+        show player_male_home_happy_fix with dissolve
+    else:
+        show player_female_home_happy_fix with dissolve
     "Aku baru saja pindah ke kota ini dan hari ini adalah hari pertamaku masuk SMA."
+    if gender=="L":
+        show player_male_home_awkward_fix with dissolve
+    else:
+        show player_female_home_awkward_fix with dissolve
     "Harapanku besar di hari pertama ini, semoga saja berjalan baik. Aku tidak bisa terlambat di hari pertama, maka ku segera bersiap."
-    "\[Mengambil ransel\]"
     if gender=="L":
         hide player_male_home_neutral_fix with dissolve
+        hide player_male_home_happy_fix with dissolve
+        hide player_male_home_awkward_fix with dissolve
     else:
         hide player_female_home_neutral_fix with dissolve
+        hide player_female_home_happy_fix with dissolve
+        hide player_female_home_awkward_fix with dissolve
     if gender=="L":
-        show player_male_happy_fix with dissolve
+        show player_male_neutral_fix with dissolve
     else:
-        show player_female_happy_fix with dissolve
+        show player_female_neutral_fix with dissolve
+    "\[Mengambil ransel\]"
+    if gender=="L":
+        show player_male_ransel_happy_fix with dissolve
+    else:
+        show player_female_ransel_happy_fix with dissolve
     p "Ayo berangkat! Jangan sampai telat!"
     "Ucapku untuk kembali fokus."
     
     jump act1
 label act1:
     scene gedung sma with fade
+    if gender=="L":
+        show player_male_ransel_neutral_fix with dissolve
+    else:
+        show player_female_ransel_neutral_fix with dissolve
     "Aku tiba di sekolah baruku,  beberapa menit sebelum acara penyambutan siswa baru akan dimulai di aula sekolah."
     scene aula sekolah with dissolve
     "Berbagai kegiatan dilalui pada kegiatan tersebut. Karena saking serunya, tak terasa waktu istirahat telah tiba."
@@ -93,38 +116,39 @@ label act1:
 label act2:
     scene kamar with fade
     if gender=="L":
-        show player_male_happy_fix with dissolve
+        show player_male_ransel_happy_fix with dissolve
     else:
-        show player_female_happy_fix with dissolve
+        show player_female_ransel_happy_fix with dissolve
     "Hari pertama sekolah pun tiba, dan aku merasa sedikit gugup sekaligus bersemangat."
+    scene kelas ramai  with fade
     if gender=="L":
-        hide player_male_happy_fix with dissolve
+        show player_male_ransel_neutral_fix with dissolve
     else:
-        hide player_female_happy_fix with dissolve
-    scene kelas versi anime  with fade
-    play sound "generic-crowd-background-noise-31310.mp3" loop
+        show player_female_ransel_neutral_fix with dissolve
+    stop sound fadeout 2.0
+    play sound "generic-crowd-background-noise-31310.mp3" loop fadein 2.0
     "\[Memasuki kelas\]"
     "\[Suara obrolan anak-anak\]"
     
     if gender=="L":
-        show player_male_neutral_fix with dissolve
+        show player_male_ransel_happy_fix with dissolve
     else:
-        show player_female_neutral_fix with dissolve
-    p "Akhirnya sampai kelas."
+        show player_female_ransel_happy_fix with dissolve
+    p "Wahh… ramai sekali…"
     if gender=="L":
-        show player_male_uncomfortable_fix with dissolve
-        hide player_male_neutral_fix
+        show player_male_ransel_uncomfortable_fix with dissolve
+        hide player_male_ransel_neutral_fix
     else:
-        show player_female_uncomfortable_fix with dissolve
-        hide player_female_neutral_fix
-    p "Hmm.. mumpung masih sepi, bisa milih tempat duduk nih."
+        show player_female_ransel_uncomfortable_fix with dissolve
+        hide player_female_ransel_neutral_fix
+    p "Banyak yang sudah memilih bangku."
     p "Enaknya duduk di mana ya?"
     if gender=="L":
-        show player_male_neutral_fix at Blur,center with dissolve
-        hide player_male_uncomfortable_fix
+        show player_male_ransel_neutral_fix at Blur,center with dissolve
+        hide player_male_ransel_happy_fix
     else:
-        show player_female_neutral_fix at Blur,center with dissolve
-        hide player_female_uncomfortable_fix
+        show player_female_ransel_neutral_fix at Blur,center with dissolve
+        hide player_female_ransel_happy_fix
 
     menu:
         "Sebaiknya aku..."
@@ -134,17 +158,17 @@ label act2:
             $ vsn += 2
     
     if gender=="L":
-        show player_male_happy_fix with dissolve
+        show player_male_ransel_happy_fix with dissolve
     else:
-        show player_female_happy_fix with dissolve
+        show player_female_ransel_happy_fix with dissolve
     p "Di sini sepertinya pas"
     "Aku menempati bangku barisan ke dua paling kanan."
     jump act3
 
 label act3:
-    scene kelas versi anime with fade
+    scene kelas ramai with fade
     show zachary_neutral_fix with dissolve
-    "\[Seorang anak mendekat - karakter baru muncul\]"
+    "\[Seorang anak mendekat\]"
     define r = Character("???")
     hide zachary_neutral_fix with dissolve
     
@@ -160,7 +184,6 @@ label act3:
         show player_male_neutral_fix at right, Normal with dissolve
     else:
         show player_female_neutral_fix at right, Normal with dissolve
-        p "(dalam hati) Nih cowok ngapain sih."
     p "Boleh, silahkan saja."
 
     show zachary_happy_fix at left, Normal with dissolve
@@ -195,8 +218,9 @@ label act3:
     else:
         show player_female_happy_fix at right, Normal with dissolve
     p "Salam kenal Zac. \[senyum ramah\]"
-    scene kelas versi anime with fade
+    scene kelas_papan_tulis with fade
     play sound "japanese_school_bell.mp3"
+    queue sound "game-music-loop-7-145285.mp3" loop
     "\[Bel sekolah berbunyi\]"
     show guru_happy_fix with dissolve
     "\[Guru seni masuk ke kelas dengan senyum ramah\]"
@@ -235,7 +259,9 @@ label act3:
     jump act4
 
 label act4:
-    play sound "japanese_school_bell.mp3"
+    stop sound fadeout 2.0
+    play sound "school_bell.mp3" fadein 1.0
+    queue sound "game-music-loop-7-145285.mp3" fadein 2.0
     scene kelas versi anime with fade
     "Singkat cerita, bel pulang sekolah berbunyi, menandakan akhir dari hari yang panjang. "
     "Aku segera mengemas barang-barangku, mengamati sejenak kelas yang mulai sepi, lalu berjalan keluar dan pulang."
@@ -274,6 +300,9 @@ label act4:
         show gambar_presisi at abscenter
     else:
         show gambar_imajinatif at abscenter
+    show a_grade:
+        xalign 0.4
+        yalign 0.4
     
     "Hari-hari berlalu, tugas seni lukis pun akhirnya berhasil di selesaikan, dan aku mendapat nilai “A” dari guru."
     "Hasil karya tersebut rencananya akan dipajang di mading sekolah, satu kelaspun memberikan tepuk tangan yang meriah kepadaku."
@@ -304,8 +333,10 @@ label result:
         show player_female_home_neutral_fix at center, Normal with dissolve
     call screen result
     # p "Ternyata saya adalah seorang [personality_type]"
-    $ save_to_db(player_name, personality_type) # Call the save function
-    with Pause(5)
+    # $ save_to_db(player_name, personality_type) # Call the save function
+    
+    scene black with fade
+    call screen kredit
     
 
 
