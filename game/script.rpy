@@ -9,7 +9,6 @@ label start:
     #show awan at abscenter with dissolve
     show hp_alarm at abscenter, shake_with_pause with dissolve
     "\"Bib… bib… bib… ♪♪\"\[Bunyi alarm mengganggu\]" with dissolve
-    "\[Menggeram\]"
     "\[Mengambil handphone yang tergeletak di meja\]"
     "Aku menekan tombol power dan layar handphoneku menampilkan wallpaper yang bertuliskan namaku"
     python:
