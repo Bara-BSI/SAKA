@@ -287,6 +287,7 @@ style quick_button_text:
 screen navigation():
 
     vbox:
+        
         style_prefix "navigation"
 
         yalign 0.6
@@ -316,7 +317,7 @@ screen navigation():
 
             elif not main_menu:
 
-                textbutton _("Menu Utama") action MainMenu() hover_background "button_hover.png"
+                textbutton _("Menu Utama") action [MainMenu(), SetField(persistent, "first_main_menu", True)] hover_background "button_hover.png"
 
             textbutton _("Tentang") action ShowMenu("about") hover_background "button_hover.png"
 
@@ -346,7 +347,7 @@ screen navigation():
 
             elif not main_menu:
 
-                textbutton _("Menu Utama") action MainMenu()
+                textbutton _("Menu Utama") action [MainMenu(), SetField(persistent, "first_main_menu", True)]
 
             textbutton _("Tentang") action ShowMenu("about")
 
@@ -388,7 +389,10 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-    $ renpy.sound.play("ukulele.mp3", loop=True)
+    if persistent.first_main_menu:  # Check if it's the first visit
+        $ renpy.sound.play("ukulele.mp3", loop=True)
+        $ persistent.first_main_menu = False  # Set to False after first visit
+
 
     ## Ini Memastikan Layar Menu Yang Lain Telah Di Timpa
     tag menu
@@ -875,6 +879,14 @@ style slider_pref_vbox is pref_vbox
 
 style mute_all_button is check_button
 style mute_all_button_text is check_button_text
+
+style radio_button_text:
+    color "#727272"
+    hover_color "#E78344"
+
+style check_button_text:
+    color "#727272"
+    hover_color "#E78344"
 
 style pref_label:
     top_margin gui.pref_spacing

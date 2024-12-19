@@ -3,6 +3,8 @@
 
 init:
     python:
+        persistent.first_main_menu = True  # Tracks initial main menu visit
+
         import mysql.connector  # Install using 'pip install mysql-connector-python'
     
         def save_to_db(player_name, personality_type):
@@ -215,7 +217,7 @@ transform abscenter:
 transform kremov:
     xalign 0.5
     ypos 1000
-    linear 20.0 ypos -1000
+    linear 40.0 ypos -4000
     pause 5
 
 screen kredit:
@@ -225,20 +227,108 @@ screen kredit:
 
         text "SAKA" at kremov:
             size 60
-        text "Sistem Analisis Kepribadian Anak" at kremov
+            bold True
+        
+        for i in range(4):
+            text "" at kremov
+
+        text "Credits" at kremov:
+            size 40
+            bold True
         text "" at kremov
-        text "Developer:" at kremov
-        text "Bara Rifki Annajib" at kremov
-        text "Christina Yuli Anggita" at kremov
+        text "Project Management" at kremov:
+            bold True
         text "Restu Ardi Putranto" at kremov
         text "" at kremov
-        text "Terima Kasih kepada:" at kremov
-        text "Tuhan YME" at kremov
-        text "Orang tua kami" at kremov
-        text "Bu Anas dan Bu Nani atas bimbingannya" at kremov
-        text "Microsoft Copilot dan Google Gemini" at kremov
-        text "pixabay.com dan zedge.net untuk sound" at kremov
+        text "Character Designer" at kremov:
+            bold True
+        text "Christina Yuli Anggita" at kremov
+        text "" at kremov
+        text "Background Designer" at kremov:
+            bold True
+        text "Restu Ardi Putranto" at kremov
+        text "" at kremov
+        text "Music & SFX" at kremov:
+            bold True
+        text "Bara Rifki Annajib" at kremov
+        text "" at kremov
+        text "Story Board" at kremov:
+            bold True
+        text "Christina Yuli Anggita" at kremov
+        text "" at kremov
+        text "Programmer" at kremov:
+            bold True
+        text "Bara Rifki Annajib" at kremov
+
+        for i in range(4):
+            text "" at kremov
+
+        text "Special Thanks" at kremov:
+            bold True
+        text "Anastasia Meyliana, S.Kom, M.Kom" at kremov
+        text "Nani Purwati, S.Kom, M.Kom" at kremov
+
+        for i in range(4):
+            text "" at kremov
+        
+        text "Special Credits" at kremov:
+            size 40
+            bold True
+        text "" at kremov
+        text "" at kremov
+        image "images/credit/renpy_logo.png" at kremov:
+            xalign 0.5
+        text "Renpy Game Engine" at kremov
+        text "" at kremov
+        text "" at kremov
+        image "images/credit/medibang_logo.png" at kremov:
+            xalign 0.5
+        text "Medibang Paint Pro" at kremov
+        text "" at kremov
+        text "" at kremov
+        image "images/credit/figma_logo.png" at kremov:
+            xalign 0.5
+        text "Figma" at kremov
+        text "" at kremov
+        text "" at kremov
+        image "images/credit/notion_logo.png" at kremov:
+            xalign 0.5
+        text "Notion" at kremov
+
+        for i in range(4):
+            text "" at kremov
+        
+        text "A game by" at kremov
+        text "BARESCRIM" at kremov:
+            bold True
+        text "" at kremov
+        image "images/barescrim_bg_bk.png" at kremov
+
+        for i in range(14):
+            text "" at kremov
+
+        text "Thank you for playing!" at kremov
+        $ persistent.first_main_menu = True
+    
+    vbox:
+        for i in range(95):
+            text "" at kremov
+        textbutton "" at kremov:
+            action Return()
+            xsize 1920
+            ysize 1080
+            # background "#FFFFFF" # For debugging purpose
+            background None
+
+
+
+
+
+        
+        
+
 
 style kredit_text:
     color "#FFFFFF"
-    size 44
+    size 32
+    font "droid-sans-mono/DroidSansMono.ttf"

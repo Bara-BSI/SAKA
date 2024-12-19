@@ -1,40 +1,50 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "renpy/common/00start.rpy", line 83, in _init_language
-    renpy.change_language(language)
-  File "game/screens.rpy", line 1771, in <module>
-    background thoughtbubble
-NameError: name 'thoughtbubble' is not defined
+While running game code:
+TypeError: 'str' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/main.py", line 652, in main
-    run(restart)
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/main.py", line 75, in run
-    renpy.translation.init_translation()
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/translation/__init__.py", line 702, in init_translation
-    renpy.store._init_language() # type: ignore
-  File "renpy/common/00start.rpy", line 83, in _init_language
-    renpy.change_language(language)
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/translation/__init__.py", line 796, in change_language
-    new_change_language(tl, language)
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/translation/__init__.py", line 748, in new_change_language
-    i.apply()
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/ast.py", line 2800, in apply
-    value = renpy.python.py_eval(expr)
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/screens.rpy", line 1771, in <module>
-    background thoughtbubble
-NameError: name 'thoughtbubble' is not defined
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in script
+    $ ui.interact()
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/ast.py", line 821, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in <module>
+    $ ui.interact()
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/core.py", line 2215, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/core.py", line 3278, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/layout.py", line 1294, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/transition.py", line 53, in event
+    return self.new_widget.event(ev, x, y, st) # E1101
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/layout.py", line 1294, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/layout.py", line 1294, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/screen.py", line 793, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/layout.py", line 1294, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/layout.py", line 1294, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/behavior.py", line 1180, in event
+    return handle_click(self.clicked)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/behavior.py", line 1101, in handle_click
+    rv = run(action)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/behavior.py", line 394, in run
+    new_rv = run(i, *args, **kwargs)
+  File "/home/nabara/Downloads/renpy-8.3.2-sdk/renpy/display/behavior.py", line 401, in run
+    return action(*args, **kwargs)
+TypeError: 'str' object is not callable
 
 Linux-6.11.8-1-default-x86_64-with-glibc2.40 x86_64
 Ren'Py 8.3.2.24090902
-SAKA 0.1.0
-Wed Dec  4 19:59:39 2024
+SAKA 0.2.1
+Wed Dec 18 22:21:43 2024

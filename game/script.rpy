@@ -209,8 +209,8 @@ label act3:
         show player_male_happy_fix at right, Blur with dissolve
     else:
         show player_female_happy_fix at right, Blur with dissolve
-    define r = Character("Zachary")
-    r "Aku Zachary, kamu bisa panggil aku Zac. Salam kenal!"
+    define z = Character("Zachary")
+    z "Aku Zachary, kamu bisa panggil aku Zac. Salam kenal!"
 
     show zachary_happy_fix at left, Blur with dissolve
     if gender=="L":
@@ -351,10 +351,11 @@ label splashscreen:
     scene black
     #with Pause(1)
 
-    show text "{color=#ffffff}Barescrim Studio Mempersembahkan...{/color}" with Fade(1,2,2)
+    show image "barescrim_shield.png" at abscenter with Fade(1,2,2)
     #with Pause(2)
 
-    hide text with dissolve
+    hide image "barescrim_shield.png" with Dissolve(2)
+
     #with Pause(1)
 
     return
